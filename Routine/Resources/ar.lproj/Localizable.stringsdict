@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%lld Bills</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>%lld فواتير</string>
+			<key>many</key>
+			<string>%lld فاتورة</string>
+			<key>one</key>
+			<string>فاتورة واحدة</string>
+			<key>other</key>
+			<string>%lld فاتورة</string>
+			<key>two</key>
+			<string>فاتورتان</string>
+			<key>zero</key>
+			<string>%lld فاتورة</string>
+		</dict>
+	</dict>
+	<key>%lld Tasks</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>%lld مهام</string>
+			<key>many</key>
+			<string>%lld مهمة</string>
+			<key>one</key>
+			<string>مهمة واحدة</string>
+			<key>other</key>
+			<string>%lld مهمة</string>
+			<key>two</key>
+			<string>مهمتان</string>
+			<key>zero</key>
+			<string>%lld مهمة</string>
+		</dict>
+	</dict>
+	<key>%lld days after last time</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>بعد %lld أيام من آخر مرة</string>
+			<key>many</key>
+			<string>بعد %lld يومًا من آخر مرة</string>
+			<key>one</key>
+			<string>بعد يوم من آخر مرة</string>
+			<key>other</key>
+			<string>بعد %lld يوم من آخر مرة</string>
+			<key>two</key>
+			<string>بعد يومين من آخر مرة</string>
+			<key>zero</key>
+			<string>بعد %lld يوم من آخر مرة</string>
+		</dict>
+	</dict>
+	<key>%lld hours after last time</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>بعد %lld ساعات من آخر مرة</string>
+			<key>many</key>
+			<string>بعد %lld ساعة من آخر مرة</string>
+			<key>one</key>
+			<string>بعد ساعة من آخر مرة</string>
+			<key>other</key>
+			<string>بعد %lld ساعة من آخر مرة</string>
+			<key>two</key>
+			<string>بعد ساعتين من آخر مرة</string>
+			<key>zero</key>
+			<string>بعد %lld ساعة من آخر مرة</string>
+		</dict>
+	</dict>
+	<key>%lld months after last time</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>بعد %lld أشهر من آخر مرة</string>
+			<key>many</key>
+			<string>بعد %lld شهرًا من آخر مرة</string>
+			<key>one</key>
+			<string>بعد شهر من آخر مرة</string>
+			<key>other</key>
+			<string>بعد %lld شهر من آخر مرة</string>
+			<key>two</key>
+			<string>بعد شهرين من آخر مرة</string>
+			<key>zero</key>
+			<string>بعد %lld شهر من آخر مرة</string>
+		</dict>
+	</dict>
+	<key>%lld tasks completed today</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>تم إنجاز %lld مهام اليوم</string>
+			<key>many</key>
+			<string>تم إنجاز %lld مهمة اليوم</string>
+			<key>one</key>
+			<string>تم إنجاز مهمة واحدة اليوم</string>
+			<key>other</key>
+			<string>تم إنجاز %lld مهمة اليوم</string>
+			<key>two</key>
+			<string>تم إنجاز مهمتان اليوم</string>
+			<key>zero</key>
+			<string>تم إنجاز %lld مهمة اليوم</string>
+		</dict>
+	</dict>
+	<key>%lld times a day</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>%lld مرات في اليوم</string>
+			<key>many</key>
+			<string>%lld مرة في اليوم</string>
+			<key>one</key>
+			<string>مرة واحدة في اليوم</string>
+			<key>other</key>
+			<string>%lld مرة في اليوم</string>
+			<key>two</key>
+			<string>مرتين في اليوم</string>
+			<key>zero</key>
+			<string>%lld مرة في اليوم</string>
+		</dict>
+	</dict>
+	<key>%lld times a month</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>%lld مرات في الشهر</string>
+			<key>many</key>
+			<string>%lld مرة في الشهر</string>
+			<key>one</key>
+			<string>مرة واحدة في الشهر</string>
+			<key>other</key>
+			<string>%lld مرة في الشهر</string>
+			<key>two</key>
+			<string>مرتين في الشهر</string>
+			<key>zero</key>
+			<string>%lld مرة في الشهر</string>
+		</dict>
+	</dict>
+	<key>%lld times a week</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>%lld مرات في الأسبوع</string>
+			<key>many</key>
+			<string>%lld مرة في الأسبوع</string>
+			<key>one</key>
+			<string>مرة واحدة في الأسبوع</string>
+			<key>other</key>
+			<string>%lld مرة في الأسبوع</string>
+			<key>two</key>
+			<string>مرتين في الأسبوع</string>
+			<key>zero</key>
+			<string>%lld مرة في الأسبوع</string>
+		</dict>
+	</dict>
+	<key>%lld weeks after last time</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>بعد %lld أسابيع من آخر مرة</string>
+			<key>many</key>
+			<string>بعد %lld أسبوعًا من آخر مرة</string>
+			<key>one</key>
+			<string>بعد أسبوع من آخر مرة</string>
+			<key>other</key>
+			<string>بعد %lld أسبوع من آخر مرة</string>
+			<key>two</key>
+			<string>بعد أسبوعين من آخر مرة</string>
+			<key>zero</key>
+			<string>بعد %lld أسبوع من آخر مرة</string>
+		</dict>
+	</dict>
+	<key>%lld years after last time</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>بعد %lld سنوات من آخر مرة</string>
+			<key>many</key>
+			<string>بعد %lld سنة من آخر مرة</string>
+			<key>one</key>
+			<string>بعد سنة من آخر مرة</string>
+			<key>other</key>
+			<string>بعد %lld سنة من آخر مرة</string>
+			<key>two</key>
+			<string>بعد سنتين من آخر مرة</string>
+			<key>zero</key>
+			<string>بعد %lld سنة من آخر مرة</string>
+		</dict>
+	</dict>
+	<key>Every %lld days</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>كل %lld أيام</string>
+			<key>many</key>
+			<string>كل %lld يومًا</string>
+			<key>one</key>
+			<string>كل يوم</string>
+			<key>other</key>
+			<string>كل %lld يوم</string>
+			<key>two</key>
+			<string>كل يومين</string>
+			<key>zero</key>
+			<string>كل %lld يوم</string>
+		</dict>
+	</dict>
+	<key>Every %lld hours</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>كل %lld ساعات</string>
+			<key>many</key>
+			<string>كل %lld ساعة</string>
+			<key>one</key>
+			<string>كل ساعة</string>
+			<key>other</key>
+			<string>كل %lld ساعة</string>
+			<key>two</key>
+			<string>كل ساعتين</string>
+			<key>zero</key>
+			<string>كل %lld ساعة</string>
+		</dict>
+	</dict>
+	<key>Every %lld months</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>كل %lld أشهر</string>
+			<key>many</key>
+			<string>كل %lld شهرًا</string>
+			<key>one</key>
+			<string>كل شهر</string>
+			<key>other</key>
+			<string>كل %lld شهر</string>
+			<key>two</key>
+			<string>كل شهرين</string>
+			<key>zero</key>
+			<string>كل %lld شهر</string>
+		</dict>
+	</dict>
+	<key>Every %lld weeks</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>كل %lld أسابيع</string>
+			<key>many</key>
+			<string>كل %lld أسبوعًا</string>
+			<key>one</key>
+			<string>كل أسبوع</string>
+			<key>other</key>
+			<string>كل %lld أسبوع</string>
+			<key>two</key>
+			<string>كل أسبوعين</string>
+			<key>zero</key>
+			<string>كل %lld أسبوع</string>
+		</dict>
+	</dict>
+	<key>Every %lld years</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>كل %lld سنوات</string>
+			<key>many</key>
+			<string>كل %lld سنة</string>
+			<key>one</key>
+			<string>كل سنة</string>
+			<key>other</key>
+			<string>كل %lld سنة</string>
+			<key>two</key>
+			<string>كل سنتين</string>
+			<key>zero</key>
+			<string>كل %lld سنة</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
