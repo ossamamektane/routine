@@ -1,0 +1,1399 @@
+name: Screenshots
+2
+​
+3
+# Opens Routine in an iPhone simulator on GitHub's Mac, taps through it and saves
+4
+# screenshots and two short videos, so you can see the app without a phone or TestFlight.
+5
+# No Apple keys or signing needed.
+6
+#
+7
+# Run it: Actions > Screenshots > Run workflow (takes about 15 minutes).
+8
+# Then open the finished run and download "Routine-screenshots" at the bottom of the page.
+9
+# The screenshot test only exists while this runs. Nothing is added to the app.
+10
+on:
+11
+  workflow_dispatch:
+12
+​
+13
+jobs:
+14
+  screenshots:
+15
+    name: Take screenshots
+16
+    runs-on: macos-26
+17
+    timeout-minutes: 60
+18
+    env:
+19
+      BUNDLE_ID: com.ossamamektane.routine
+20
+    steps:
+21
+      - name: Check out
+22
+        uses: actions/checkout@v4
+23
+​
+24
+      - name: Use the newest Xcode
+25
+        uses: maxim-lobanov/setup-xcode@v1
+26
+        with:
+27
+          xcode-version: latest-stable
+28
+​
+29
+      - name: Add the screenshot test (only for this run)
+30
+        run: |
+31
+          mkdir -p RoutineUITests
+32
+          cat > RoutineUITests/ScreenshotTests.swift <<'SWIFT'
+33
+          import XCTest
+34
+​
+35
+          /// Taps through Routine in the iPhone Simulator and saves a screenshot of each step.
+36
+          /// The Screenshots workflow creates this file only while it runs. It isn't part of the app.
+37
+          final class ScreenshotTests: XCTestCase {
+38
+​
+39
+              override func setUpWithError() throws {
+40
+                  continueAfterFailure = true
+41
+              }
+42
+​
+43
+              // MARK: 1. First launch: welcome, reminders and the first routine
+44
+​
+45
+              @MainActor
+46
+              func test1FirstLaunch() throws {
+47
+                  let app = launchApp()
+48
+                  finishWelcome(app, firstLaunch: true)
+49
+​
+50
+                  let idea = app.staticTexts["Take medication"].firstMatch
+51
+                  guard idea.waitForExistence(timeout: 10) else {
+52
+                      note("First launch: the list of ideas didn't appear.")
+53
+                      shot("03-today")
+54
+                      return
+55
+                  }
+56
+                  shot("03-today-empty")
+57
+​
+58
+                  idea.tap()
+59
+                  let editor = app.navigationBars["New Task"]
+60
+                  guard editor.waitForExistence(timeout: 8) else {
+61
+                      note("First launch: tapping an idea didn't open the editor.")
+62
+                      shot("04-after-tapping-idea")
+63
+                      return
+64
+                  }
+65
+                  shot("04-new-task-from-idea")
+66
+                  tap(editor.buttons["Add"], "the Add button in the editor")
+67
+​
+68
+                  let check = app.buttons["Mark as done"].firstMatch
+69
+                  guard check.waitForExistence(timeout: 8) else {
+70
+                      note("First launch: the new routine didn't appear on Today.")
+71
+                      shot("05-today")
+72
+                      return
+73
+                  }
+74
+                  shot("05-first-routine-added")
+75
+                  check.tap()
+76
+                  shot("06-first-routine-done")
+77
+              }
+78
+​
+79
+              // MARK: 2. A normal day with routines and bills (demo data added by the workflow)
+80
+​
+81
+              @MainActor
+82
+              func test2Tour() throws {
+83
+                  let app = launchApp()
+84
+                  finishWelcome(app, firstLaunch: false)
+85
+​
+86
+                  let todayBar = app.navigationBars["Today"]
+87
+                  guard todayBar.waitForExistence(timeout: 20) else {
+88
+                      note("Tour: Today didn't appear.")
+89
+                      shot("10-start")
+90
+                      return
+91
+                  }
+92
+                  shot("10-today")
+93
+​
+94
+                  // Set a wake-up time if Today asks for one.
+95
+                  let setWake = app.buttons["Set Wake-Up Time"].firstMatch
+96
+                  let startDay = app.buttons["Start My Day"].firstMatch
+97
+                  if setWake.exists || startDay.exists {
+98
+                      if setWake.exists { setWake.tap() } else { startDay.tap() }
+99
+                      let save = app.navigationBars.buttons["Save"].firstMatch
+100
+                      if save.waitForExistence(timeout: 3) { save.tap() }
+101
+                      shot("11-after-wake-up")
+102
+                  }
+103
+​
+104
+                  // Check something off.
+105
+                  let check = app.buttons["Mark as done"].firstMatch
+106
+                  if check.exists {
+107
+                      check.tap()
+108
+                      shot("12-checked-off")
+109
+                  }
+110
+​
+111
+                  app.swipeUp()
+112
+                  shot("13-today-scrolled")
+113
+                  app.swipeDown()
+114
+                  app.swipeDown()
+115
+                  pause()
+116
+​
+117
+                  // Swipe a row to see Skip and Later.
+118
+                  let trash = app.staticTexts["Take out the trash"].firstMatch
+119
+                  if trash.waitForExistence(timeout: 3) {
+120
+                      trash.swipeLeft()
+121
+                      shot("14-swipe-actions")
+122
+                      let later = app.buttons["Later"].firstMatch
+123
+                      if later.exists {
+124
+                          later.tap()
+125
+                          shot("15-remind-me-later")
+126
+                          let cancel = app.buttons["Cancel"].firstMatch
+127
+                          if cancel.waitForExistence(timeout: 3) {
+128
+                              cancel.tap()
+129
+                          } else {
+130
+                              todayBar.tap()
+131
+                          }
+132
+                          pause()
+133
+                      } else {
+134
+                          todayBar.tap()
+135
+                          pause()
+136
+                      }
+137
+                  } else {
+138
+                      note("Tour: couldn't find Take out the trash.")
+139
+                  }
+140
+​
+141
+                  // Open a routine to see its details and history.
+142
+                  openDetails(app, "Take medication", shotName: "16-details", moreName: "17-details-more")
+143
+​
+144
+                  // Add a task with the + button on Today.
+145
+                  if tap(todayBar.buttons["Add a task"], "the + button on Today") {
+146
+                      let editor = app.navigationBars["New Task"]
+147
+                      if editor.waitForExistence(timeout: 6) {
+148
+                          enter("Stretch", into: app.textFields["Name"].firstMatch, or: app.textFields.firstMatch)
+149
+                          shot("19-new-task")
+150
+                          tap(editor.buttons["Add"], "the Add button in the editor")
+151
+                          closeIfOpen(editor)
+152
+                          shot("20-task-added")
+153
+                      } else {
+154
+                          note("Tour: the + button on Today didn't open the editor.")
+155
+                      }
+156
+                  }
+157
+​
+158
+                  // Tasks tab.
+159
+                  if openTab(app, "Tasks") {
+160
+                      shot("21-tasks")
+161
+                  }
+162
+​
+163
+                  // Bills tab, then add a bill with its + button.
+164
+                  if openTab(app, "Bills") {
+165
+                      shot("30-bills")
+166
+                      if tap(app.navigationBars["Bills"].buttons["Add a bill"], "the + button on Bills") {
+167
+                          let bill = app.navigationBars["New Bill"]
+168
+                          if bill.waitForExistence(timeout: 6) {
+169
+                              enter("Electricity", into: app.textFields["Name"].firstMatch, or: app.textFields.firstMatch)
+170
+                              let amount = app.textFields["Amount"].firstMatch
+171
+                              scrollUntilVisible(amount, in: app)
+172
+                              enter("64", into: amount, or: app.textFields.element(boundBy: 1))
+173
+                              shot("31-new-bill")
+174
+                              app.swipeUp()
+175
+                              shot("32-new-bill-reminder")
+176
+                              tap(bill.buttons["Add"], "the Add button in the bill editor")
+177
+                              closeIfOpen(bill)
+178
+                              shot("33-bill-added")
+179
+                          } else {
+180
+                              note("Tour: the + button on Bills didn't open the editor.")
+181
+                          }
+182
+                      }
+183
+                      app.swipeUp()
+184
+                      shot("34-bills-more")
+185
+                      app.swipeDown()
+186
+                      app.swipeDown()
+187
+                  }
+188
+​
+189
+                  // Settings.
+190
+                  if openTab(app, "Today"), tap(todayBar.buttons["Settings"], "the Settings button") {
+191
+                      let settings = app.navigationBars["Settings"]
+192
+                      if settings.waitForExistence(timeout: 6) {
+193
+                          shot("40-settings")
+194
+                          app.swipeUp()
+195
+                          shot("41-settings-more")
+196
+                          tap(settings.buttons["Close"], "Close in Settings")
+197
+                      }
+198
+                  }
+199
+              }
+200
+​
+201
+              // MARK: 3. Dark mode (the workflow switches the simulator to dark first)
+202
+​
+203
+              @MainActor
+204
+              func test3DarkMode() throws {
+205
+                  let app = launchApp()
+206
+                  finishWelcome(app, firstLaunch: false)
+207
+​
+208
+                  let todayBar = app.navigationBars["Today"]
+209
+                  guard todayBar.waitForExistence(timeout: 20) else {
+210
+                      note("Dark mode: Today didn't appear.")
+211
+                      shot("dark-10-start")
+212
+                      return
+213
+                  }
+214
+                  shot("dark-10-today")
+215
+                  openDetails(app, "Take medication", shotName: "dark-16-details", moreName: nil)
+216
+                  if openTab(app, "Tasks") { shot("dark-20-tasks") }
+217
+                  if openTab(app, "Bills") { shot("dark-30-bills") }
+218
+                  if openTab(app, "Today"), tap(todayBar.buttons["Settings"], "the Settings button") {
+219
+                      if app.navigationBars["Settings"].waitForExistence(timeout: 6) {
+220
+                          shot("dark-40-settings")
+221
+                      }
+222
+                  }
+223
+              }
+224
+​
+225
+              // MARK: Helpers
+226
+​
+227
+              @MainActor
+228
+              private func launchApp() -> XCUIApplication {
+229
+                  let app = XCUIApplication()
+230
+                  app.launchArguments += ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+231
+                  app.launch()
+232
+                  return app
+233
+              }
+234
+​
+235
+              /// The welcome sheet and the reminders permission that a fresh install shows.
+236
+              @MainActor
+237
+              private func finishWelcome(_ app: XCUIApplication, firstLaunch: Bool) {
+238
+                  let start = app.buttons["Continue"].firstMatch
+239
+                  guard start.waitForExistence(timeout: firstLaunch ? 30 : 15) else {
+240
+                      if firstLaunch { note("First launch: the welcome screen didn't appear.") }
+241
+                      return
+242
+                  }
+243
+                  if firstLaunch { shot("01-welcome") }
+244
+                  start.tap()
+245
+​
+246
+                  let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+247
+                  let allow = springboard.buttons["Allow"].firstMatch
+248
+                  if allow.waitForExistence(timeout: 10) {
+249
+                      if firstLaunch { shot("02-reminders-permission") }
+250
+                      allow.tap()
+251
+                  } else {
+252
+                      note("The reminders permission didn't appear.")
+253
+                  }
+254
+                  let gone = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: start)
+255
+                  _ = XCTWaiter.wait(for: [gone], timeout: 10)
+256
+                  pause()
+257
+              }
+258
+​
+259
+              @MainActor
+260
+              private func openDetails(_ app: XCUIApplication, _ title: String, shotName: String, moreName: String?) {
+261
+                  let row = app.staticTexts[title].firstMatch
+262
+                  guard row.waitForExistence(timeout: 3) else {
+263
+                      note("Couldn't find \(title).")
+264
+                      return
+265
+                  }
+266
+                  row.tap()
+267
+                  let details = app.navigationBars["Details"]
+268
+                  guard details.waitForExistence(timeout: 6) else {
+269
+                      note("Tapping \(title) didn't open its details.")
+270
+                      return
+271
+                  }
+272
+                  shot(shotName)
+273
+                  if let moreName {
+274
+                      app.swipeUp()
+275
+                      shot(moreName)
+276
+                  }
+277
+                  tap(details.buttons["Cancel"], "Cancel in Details")
+278
+              }
+279
+​
+280
+              @MainActor
+281
+              private func openTab(_ app: XCUIApplication, _ name: String) -> Bool {
+282
+                  let tab = app.tabBars.buttons[name].firstMatch
+283
+                  if tab.waitForExistence(timeout: 5) {
+284
+                      tab.tap()
+285
+                      pause()
+286
+                      return true
+287
+                  }
+288
+                  let other = app.buttons[name].firstMatch
+289
+                  if other.exists {
+290
+                      other.tap()
+291
+                      pause()
+292
+                      return true
+293
+                  }
+294
+                  note("Couldn't find the \(name) tab.")
+295
+                  return false
+296
+              }
+297
+​
+298
+              @MainActor
+299
+              @discardableResult
+300
+              private func tap(_ element: XCUIElement, _ what: String) -> Bool {
+301
+                  guard element.waitForExistence(timeout: 6) else {
+302
+                      note("Couldn't find \(what).")
+303
+                      return false
+304
+                  }
+305
+                  element.tap()
+306
+                  pause()
+307
+                  return true
+308
+              }
+309
+​
+310
+              /// Types into a text field. Uses `fallback` if the field can't be found by its name.
+311
+              @MainActor
+312
+              private func enter(_ text: String, into field: XCUIElement, or fallback: XCUIElement) {
+313
+                  let target: XCUIElement
+314
+                  if field.waitForExistence(timeout: 5) {
+315
+                      target = field
+316
+                  } else if fallback.exists {
+317
+                      target = fallback
+318
+                  } else {
+319
+                      note("Couldn't find a text field to type \(text).")
+320
+                      return
+321
+                  }
+322
+                  target.tap()
+323
+                  pause(0.5)
+324
+                  target.typeText(text)
+325
+                  pause(0.5)
+326
+              }
+327
+​
+328
+              /// If an editor didn't close after Add, cancel it so the tour can go on.
+329
+              @MainActor
+330
+              private func closeIfOpen(_ editor: XCUIElement) {
+331
+                  pause()
+332
+                  guard editor.exists else { return }
+333
+                  note("An editor was still open after Add, so it was cancelled.")
+334
+                  let cancel = editor.buttons["Cancel"]
+335
+                  if cancel.exists {
+336
+                      cancel.tap()
+337
+                      pause()
+338
+                  }
+339
+              }
+340
+​
+341
+              @MainActor
+342
+              private func scrollUntilVisible(_ element: XCUIElement, in app: XCUIApplication) {
+343
+                  var swipes = 0
+344
+                  while swipes < 4 && !(element.exists && element.isHittable) {
+345
+                      app.swipeUp()
+346
+                      swipes += 1
+347
+                      pause(0.5)
+348
+                  }
+349
+              }
+350
+​
+351
+              /// Saves the screen as SHOTS_DIR/name.png and also attaches it to the test results.
+352
+              @MainActor
+353
+              private func shot(_ name: String) {
+354
+                  pause()
+355
+                  let screenshot = XCUIScreen.main.screenshot()
+356
+                  let attachment = XCTAttachment(screenshot: screenshot)
+357
+                  attachment.name = name
+358
+                  attachment.lifetime = .keepAlways
+359
+                  add(attachment)
+360
+                  guard let folder = outputFolder else { return }
+361
+                  do {
+362
+                      try screenshot.pngRepresentation.write(to: folder.appendingPathComponent(name + ".png"))
+363
+                      print("SCREENSHOT saved \(name).png")
+364
+                  } catch {
+365
+                      print("SCREENSHOT could not save \(name).png: \(error)")
+366
+                  }
+367
+              }
+368
+​
+369
+              /// Something that didn't go as planned. Collected in notes.txt.
+370
+              private func note(_ text: String) {
+371
+                  print("SCREENSHOT NOTE: \(text)")
+372
+                  guard let folder = outputFolder else { return }
+373
+                  let url = folder.appendingPathComponent("notes.txt")
+374
+                  let old = (try? String(contentsOf: url, encoding: .utf8)) ?? ""
+375
+                  try? (old + text + "\n").write(to: url, atomically: true, encoding: .utf8)
+376
+              }
+377
+​
+378
+              private var outputFolder: URL? {
+379
+                  guard let path = ProcessInfo.processInfo.environment["SHOTS_DIR"], !path.isEmpty else { return nil }
+380
+                  let url = URL(fileURLWithPath: path, isDirectory: true)
+381
+                  try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
+382
+                  return url
+383
+              }
+384
+​
+385
+              private func pause(_ seconds: TimeInterval = 1) {
+386
+                  Thread.sleep(forTimeInterval: seconds)
+387
+              }
+388
+          }
+389
+          SWIFT
+390
+​
+391
+          # A second project spec that adds the test target to project.yml without changing it.
+392
+          cat > screenshots.yml <<'YAML'
+393
+          include:
+394
+            - project.yml
+395
+          targets:
+396
+            RoutineUITests:
+397
+              type: bundle.ui-testing
+398
+              platform: iOS
+399
+              sources:
+400
+                - path: RoutineUITests
+401
+              dependencies:
+402
+                - target: Routine
+403
+              settings:
+404
+                base:
+405
+                  PRODUCT_BUNDLE_IDENTIFIER: com.ossamamektane.routine.uitests
+406
+                  GENERATE_INFOPLIST_FILE: YES
+407
+                  TEST_TARGET_NAME: Routine
+408
+                  TARGETED_DEVICE_FAMILY: "1"
+409
+          schemes:
+410
+            Screenshots:
+411
+              build:
+412
+                targets:
+413
+                  Routine: all
+414
+                  RoutineUITests: [test]
+415
+              test:
+416
+                config: Debug
+417
+                targets:
+418
+                  - RoutineUITests
+419
+          YAML
+420
+​
+421
+          # Demo routines and bills for today's date, in the format the app saves.
+422
+          cat > "$RUNNER_TEMP/demo_data.py" <<'PY'
+423
+          import calendar
+424
+          import datetime as dt
+425
+          import json
+426
+          import uuid
+427
+​
+428
+          now = dt.datetime.now()
+429
+          today = now.date()
+430
+          now_min = now.hour * 60 + now.minute
+431
+          APPLE_EPOCH = 978307200  # Swift saves dates as seconds since 2001-01-01.
+432
+​
+433
+          def stamp(when):
+434
+              return round(when.timestamp() - APPLE_EPOCH, 3)
+435
+​
+436
+          def day(d):
+437
+              return d.isoformat()
+438
+​
+439
+          def ago(days):
+440
+              return today - dt.timedelta(days=days)
+441
+​
+442
+          def weekday(d):  # 1 = Sunday ... 7 = Saturday
+443
+              return d.isoweekday() % 7 + 1
+444
+​
+445
+          def month_day(year, month, d):
+446
+              while month < 1:
+447
+                  month += 12
+448
+                  year -= 1
+449
+              while month > 12:
+450
+                  month -= 12
+451
+                  year += 1
+452
+              return dt.date(year, month, min(d, calendar.monthrange(year, month)[1]))
+453
+​
+454
+          def at(d, minute):
+455
+              when = dt.datetime.combine(d, dt.time()) + dt.timedelta(minutes=minute)
+456
+              return min(when, now - dt.timedelta(minutes=2))
+457
+​
+458
+          items = []
+459
+​
+460
+          def add(title, symbol, color, schedule, **extra):
+461
+              created = now - dt.timedelta(days=60) + dt.timedelta(minutes=len(items))
+462
+              item = {
+463
+                  "id": str(uuid.uuid4()).upper(),
+464
+                  "title": title,
+465
+                  "symbol": symbol,
+466
+                  "color": color,
+467
+                  "schedule": schedule,
+468
+                  "reminder": "onTime",
+469
+                  "trackFrom": day(today),
+470
+                  "log": [],
+471
+                  "createdAt": stamp(created),
+472
+                  "modifiedAt": stamp(created),
+473
+              }
+474
+              item.update(extra)
+475
+              items.append(item)
+476
+              return item
+477
+​
+478
+          def done(item, d, minute, slot=None, amount=None):
+479
+              entry = {"i": str(uuid.uuid4()).upper(), "k": "done", "a": stamp(at(d, minute)), "d": day(d)}
+480
+              if slot is not None:
+481
+                  entry["s"] = slot
+482
+              if amount is not None:
+483
+                  entry["m"] = amount
+484
+              item["log"].append(entry)
+485
+​
+486
+          # Mornings run before a wake-up time is set; later in the day you’re up since 7.
+487
+          wake = 7 * 60 if now_min >= 8 * 60 else None
+488
+​
+489
+          med = add("Take medication", "pills.fill", "red",
+490
+                    {"kind": "repeating", "unit": "day", "every": 1, "start": day(ago(60)), "times": [8 * 60]})
+491
+          for back, late in [(1, 4), (2, 12), (3, 2), (4, 25), (5, 7), (6, 3)]:
+492
+              done(med, ago(back), 8 * 60 + late, slot=8 * 60)
+493
+​
+494
+          bed = add("Make the bed", "bed.double.fill", "teal",
+495
+                    {"kind": "repeating", "unit": "day", "every": 1, "start": day(ago(60)), "afterWaking": 10})
+496
+          water = add("Drink water", "drop.fill", "cyan",
+497
+                      {"kind": "repeating", "unit": "hour", "every": 2, "start": day(ago(60)),
+498
+                       "afterWaking": 0})
+499
+          if wake is not None:
+500
+              if now_min > wake + 25:
+501
+                  done(bed, today, wake + 14)
+502
+              slots = list(range(wake, 21 * 60 + 1, 120))
+503
+              passed = [k for k, minute in enumerate(slots) if minute + 30 < now_min]
+504
+              for k in passed[:-1]:  # leave the latest one to do
+505
+                  done(water, today, slots[k] + 6, slot=k)
+506
+​
+507
+          gym = add("Work out", "dumbbell.fill", "orange",
+508
+                    {"kind": "goal", "goalCount": 3, "goalPeriod": "week", "start": day(ago(60))},
+509
+                    reminder="off")
+510
+          if weekday(today) > 1:  # weeks start on Sunday in the US
+511
+              done(gym, ago(1), 18 * 60 + 30)
+512
+​
+513
+          add("Take out the trash", "trash.fill", "gray",
+514
+              {"kind": "repeating", "unit": "week", "every": 1, "start": day(ago(28)),
+515
+               "weekdays": [weekday(today)], "times": [20 * 60]})
+516
+​
+517
+          add("Water the plants", "leaf.fill", "green",
+518
+              {"kind": "repeating", "unit": "day", "every": 3, "start": day(today)})
+519
+​
+520
+          add("Call Mom", "phone.fill", "green",
+521
+              {"kind": "repeating", "unit": "week", "every": 1, "start": day(today),
+522
+               "weekdays": [weekday(today + dt.timedelta(days=2))], "times": [18 * 60]})
+523
+​
+524
+          hair = add("Haircut", "scissors", "purple",
+525
+                     {"kind": "afterDone", "unit": "week", "every": 4, "start": day(ago(19)),
+526
+                      "nextDue": day(today + dt.timedelta(days=9))},
+527
+                     reminder="dayBefore")
+528
+          done(hair, ago(19), 11 * 60)
+529
+​
+530
+          rent = add("Rent", "house.fill", "orange",
+531
+                     {"kind": "repeating", "unit": "month", "every": 1,
+532
+                      "start": day(month_day(today.year, today.month - 3, 1))},
+533
+                     cost="950", reminder="dayBefore")
+534
+          for back in range(3):
+535
+              done(rent, month_day(today.year, today.month - back, 1), 9 * 60 + 15, amount="950")
+536
+​
+537
+          last_day = calendar.monthrange(today.year, today.month)[1]
+538
+          add("Internet", "wifi", "blue",
+539
+              {"kind": "repeating", "unit": "month", "every": 1,
+540
+               "start": day(month_day(today.year, today.month, min(today.day + 3, last_day)))},
+541
+              cost="59.99", reminder="dayBefore")
+542
+​
+543
+          charged = month_day(today.year, today.month - 2, min(28, max(1, today.day - 4)))
+544
+          add("Streaming", "play.rectangle.fill", "red",
+545
+              {"kind": "repeating", "unit": "month", "every": 1, "start": day(charged)},
+546
+              cost="15.49", autopay=True, reminder="off", trackFrom=day(charged))
+547
+​
+548
+          renew = month_day(today.year, today.month + 2, 12)
+549
+          add("Car insurance", "car.fill", "indigo",
+550
+              {"kind": "repeating", "unit": "year", "every": 1,
+551
+               "start": day(month_day(renew.year - 1, renew.month, 12))},
+552
+              cost="640", reminder="dayBefore")
+553
+​
+554
+          wakes = {day(today): wake} if wake is not None else {}
+555
+          print(json.dumps({"version": 1, "items": items, "wakes": wakes}, indent=1))
+556
+          PY
+557
+​
+558
+      - name: Create the Xcode project
+559
+        run: |
+560
+          brew install xcodegen
+561
+          xcodegen generate --spec screenshots.yml
+562
+​
+563
+      - name: Start an iPhone simulator
+564
+        run: |
+565
+          cat > "$RUNNER_TEMP/pick.py" <<'PY'
+566
+          import json, re, sys
+567
+          devices = json.load(open(sys.argv[1]))["devices"]
+568
+          sdk = tuple(int(n) for n in re.findall(r"\d+", sys.argv[2] if len(sys.argv) > 2 else ""))[:2]
+569
+          best = None
+570
+          for runtime, entries in devices.items():
+571
+              if ".iOS-" not in runtime:
+572
+                  continue
+573
+              version = tuple(int(n) for n in re.findall(r"\d+", runtime.split(".iOS-")[-1]))
+574
+              for d in entries:
+575
+                  name = d.get("name", "")
+576
+                  if not d.get("isAvailable", True) or not name.startswith("iPhone"):
+577
+                      continue
+578
+                  # An iOS this Xcode supports first (a newer beta one may not run), then the
+579
+                  # newest iOS, then the big Pro Max screen that App Store Connect asks for.
+580
+                  supported = not sdk or version[:2] <= sdk
+581
+                  rank = (supported, version, "Pro Max" in name, name)
+582
+                  if best is None or rank > best[0]:
+583
+                      best = (rank, d["udid"], name)
+584
+          if best:
+585
+              print(best[1])
+586
+              print("Using " + best[2] + " with iOS " + ".".join(str(n) for n in best[0][1]), file=sys.stderr)
+587
+          PY
+588
+          xcrun simctl list devices available -j > "$RUNNER_TEMP/devices.json"
+589
+          SDK=$(xcrun --sdk iphonesimulator --show-sdk-version 2>/dev/null || true)
+590
+          echo "$(xcodebuild -version | head -1), iOS Simulator SDK $SDK"
+591
+          SIM=$(python3 "$RUNNER_TEMP/pick.py" "$RUNNER_TEMP/devices.json" "$SDK")
+592
+          if [ -z "$SIM" ]; then
+593
+            echo "::error::No iPhone simulator found"
+594
+            exit 1
+595
+          fi
+596
+          echo "SIM=$SIM" >> "$GITHUB_ENV"
+597
+          xcrun simctl bootstatus "$SIM" -b
+598
+          # A tidy status bar: 9:41, full battery and signal.
+599
+          xcrun simctl status_bar "$SIM" override --time 9:41 --batteryState charged --batteryLevel 100 \
+600
+            --cellularMode active --cellularBars 4 --dataNetwork wifi --wifiMode active --wifiBars 3 || true
+601
+          xcrun simctl ui "$SIM" appearance light || true
+602
+​
+603
+      - name: Build
+604
+        run: |
+605
+          xcodebuild build-for-testing -quiet \
+606
+            -project Routine.xcodeproj \
+607
+            -scheme Screenshots \
+608
+            -destination "id=$SIM" \
+609
+            -derivedDataPath "$RUNNER_TEMP/build" \
+610
+            CODE_SIGNING_ALLOWED=NO
+611
+​
+612
+      - name: Take screenshots
+613
+        run: |
+614
+          SHOTS="$RUNNER_TEMP/screenshots"
+615
+          RESULTS="$RUNNER_TEMP/results"
+616
+          APP="$RUNNER_TEMP/build/Build/Products/Debug-iphonesimulator/Routine.app"
+617
+          DATA_FILE="Library/Application Support/Routine/data.json"
+618
+          mkdir -p "$SHOTS" "$RESULTS"
+619
+​
+620
+          remove_app() {
+621
+            xcrun simctl terminate "$SIM" "$BUNDLE_ID" 2>/dev/null || true
+622
+            xcrun simctl uninstall "$SIM" "$BUNDLE_ID" 2>/dev/null || true
+623
+          }
+624
+​
+625
+          # Fresh install with the demo routines and bills already saved.
+626
+          install_with_demo_data() {
+627
+            remove_app
+628
+            xcrun simctl install "$SIM" "$APP"
+629
+            CONTAINER=$(xcrun simctl get_app_container "$SIM" "$BUNDLE_ID" data)
+630
+            mkdir -p "$(dirname "$CONTAINER/$DATA_FILE")"
+631
+            python3 "$RUNNER_TEMP/demo_data.py" > "$CONTAINER/$DATA_FILE"
+632
+            echo "Demo data saved ($(wc -c < "$CONTAINER/$DATA_FILE") bytes)"
+633
+          }
+634
+​
+635
+          # $1 = test name, $2 = video file name (optional)
+636
+          run_test() {
+637
+            VIDEO_PID=""
+638
+            if [ -n "${2:-}" ]; then
+639
+              xcrun simctl io "$SIM" recordVideo --codec=h264 --force "$SHOTS/$2" > /dev/null 2>&1 &
+640
+              VIDEO_PID=$!
+641
+              sleep 3
+642
+            fi
+643
+            TEST_RUNNER_SHOTS_DIR="$SHOTS" xcodebuild test-without-building \
+644
+              -project Routine.xcodeproj \
+645
+              -scheme Screenshots \
+646
+              -destination "id=$SIM" \
+647
+              -derivedDataPath "$RUNNER_TEMP/build" \
+648
+              -resultBundlePath "$RESULTS/$1.xcresult" \
+649
+              -only-testing:"RoutineUITests/ScreenshotTests/$1" \
+650
+              > "$RESULTS/$1.log" 2>&1 \
+651
+              || echo "::warning::Some steps in $1 didn't work. The screenshots it took are still saved."
+652
+            grep -E "SCREENSHOT|Test Case|error:" "$RESULTS/$1.log" | head -80 || true
+653
+            if [ -n "$VIDEO_PID" ]; then
+654
+              kill -INT "$VIDEO_PID" 2>/dev/null || true
+655
+              for _ in $(seq 1 20); do
+656
+                kill -0 "$VIDEO_PID" 2>/dev/null || break
+657
+                sleep 1
+658
+              done
+659
+              kill -9 "$VIDEO_PID" 2>/dev/null || true
+660
+            fi
+661
+          }
+662
+​
+663
+          remove_app
+664
+          run_test test1FirstLaunch video-1-first-launch.mp4
+665
+​
+666
+          install_with_demo_data
+667
+          run_test test2Tour video-2-tour.mp4
+668
+​
+669
+          xcrun simctl ui "$SIM" appearance dark || true
+670
+          install_with_demo_data
+671
+          run_test test3DarkMode
+672
+​
+673
+          # Backup: if the test couldn't write the files, copy them out of the test results.
+674
+          if ! ls "$SHOTS"/*.png > /dev/null 2>&1; then
+675
+            echo "::warning::Copying the screenshots from the test results instead."
+676
+            for result in "$RESULTS"/*.xcresult; do
+677
+              xcrun xcresulttool export attachments --path "$result" \
+678
+                --output-path "$SHOTS/$(basename "$result" .xcresult)" || true
+679
+            done
+680
+          fi
+681
+​
+682
+          echo "Saved:"
+683
+          ls -1 "$SHOTS"
+684
+​
+685
+      - name: Upload screenshots
+686
+        if: always()
+687
+        uses: actions/upload-artifact@v4
+688
+        with:
+689
+          name: Routine-screenshots
+690
+          path: ${{ runner.temp }}/screenshots
+691
+          if-no-files-found: warn
+692
+​
+693
+      - name: Upload test details
+694
+        if: always()
+695
+        uses: actions/upload-artifact@v4
+696
+        with:
+697
+          name: test-details
+698
+          path: ${{ runner.temp }}/results
+699
+          if-no-files-found: ignore
+700
+          retention-days: 7
