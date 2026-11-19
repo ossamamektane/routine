@@ -968,7 +968,7 @@ jobs:
 485
 ​
 486
-          # Mornings run before a wake-up time is set; later in the day you’re up since 7.
+          # Mornings run before a wake-up time is set; later in the day you're up since 7.
 487
           wake = 7 * 60 if now_min >= 8 * 60 else None
 488
