@@ -1037,8 +1037,8 @@
     "nth": null
    },
    "cost": 13,
-   "autopay": false,
-   "reminder": "dayBefore",
+   "autopay": true,
+   "reminder": "off",
    "paused": true,
    "pauses": [
     {
@@ -1050,9 +1050,10 @@
    "log": [],
    "snoozes": [],
    "createdAt": 1795728843064,
-   "modifiedAt": 1795728843064,
+   "modifiedAt": 1795751411722,
    "deletedAt": null,
-   "logGone": []
+   "logGone": [],
+   "payment": "cash"
   },
   {
    "id": "97621BDB-BC83-4AF8-BFAA-36A8148ED1E5",
