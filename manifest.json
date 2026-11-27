@@ -1,0 +1,7 @@
+{
+  "name": "Routine",
+  "short_name": "Routine",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone"
+}
