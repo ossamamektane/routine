@@ -38,7 +38,7 @@
   },
   {
    "id": "9136EF9A-F99E-4EF6-9620-66D6BCC050CD",
-   "title": "Clean the House",
+   "title": "Clean the Room",
    "notes": "",
    "schedule": {
     "kind": "repeating",
@@ -77,7 +77,7 @@
    ],
    "snoozes": [],
    "createdAt": 1795728843041,
-   "modifiedAt": 1795729891417,
+   "modifiedAt": 1795753279055,
    "deletedAt": null,
    "logGone": []
   },
