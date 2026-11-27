@@ -1312,18 +1312,18 @@
    "cost": 80,
    "autopay": false,
    "reminder": "off",
-   "paused": true,
+   "paused": false,
    "pauses": [
     {
      "start": "2026-11-26",
-     "end": null
+     "end": "2026-11-27"
     }
    ],
    "trackFrom": "2026-11-27",
    "log": [],
    "snoozes": [],
    "createdAt": 1795728843067,
-   "modifiedAt": 1795812874895,
+   "modifiedAt": 1795812879456,
    "deletedAt": null,
    "logGone": [],
    "payment": "cash"
