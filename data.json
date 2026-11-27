@@ -18,7 +18,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -49,7 +52,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -91,7 +97,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -133,7 +142,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -187,7 +199,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -218,7 +233,10 @@
     "nextDueTime": null,
     "fromDone": true,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -270,7 +288,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -301,7 +322,10 @@
     "nextDueTime": null,
     "fromDone": true,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -363,7 +387,10 @@
     "nextDueTime": null,
     "fromDone": true,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -410,7 +437,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -452,7 +482,10 @@
     "nextDueTime": null,
     "fromDone": true,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -524,7 +557,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -566,7 +602,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -602,7 +641,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 2,
    "autopay": true,
@@ -633,7 +675,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 249,
    "autopay": false,
@@ -666,7 +711,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 150,
    "autopay": false,
@@ -708,7 +756,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 500,
    "autopay": false,
@@ -739,7 +790,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 32,
    "autopay": true,
@@ -770,7 +824,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 150,
    "autopay": false,
@@ -801,7 +858,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 30,
    "autopay": false,
@@ -832,7 +892,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 2,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 30,
    "autopay": false,
@@ -863,7 +926,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 50,
    "autopay": false,
@@ -894,7 +960,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 30,
    "autopay": false,
@@ -925,7 +994,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 20,
    "autopay": false,
@@ -956,7 +1028,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 13,
    "autopay": false,
@@ -992,7 +1067,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 1000,
    "autopay": false,
@@ -1028,7 +1106,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 1000,
    "autopay": false,
@@ -1064,7 +1145,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 450,
    "autopay": false,
@@ -1100,7 +1184,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 100,
    "autopay": false,
@@ -1136,7 +1223,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "month"
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 300,
    "autopay": false,
@@ -1172,7 +1262,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 1,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": 300,
    "autopay": false,
@@ -1208,7 +1301,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -1250,7 +1346,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
@@ -1294,7 +1393,10 @@
     "nextDueTime": null,
     "fromDone": false,
     "goalCount": 3,
-    "goalPeriod": "week"
+    "goalPeriod": "week",
+    "monthDays": [],
+    "months": [],
+    "nth": null
    },
    "cost": null,
    "autopay": false,
