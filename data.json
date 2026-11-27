@@ -388,11 +388,21 @@
      "previousDue": null,
      "previousDueTime": null,
      "amount": null
+    },
+    {
+     "id": "DCD112DC-D1D7-459C-AFE4-5F6BCC36D25F",
+     "kind": "done",
+     "at": 1795791972292,
+     "day": "2026-11-27",
+     "slot": 0,
+     "previousDue": null,
+     "previousDueTime": null,
+     "amount": null
     }
    ],
    "snoozes": [],
    "createdAt": 1795728843047,
-   "modifiedAt": 1795752976517,
+   "modifiedAt": 1795791972292,
    "deletedAt": null,
    "logGone": [
     {
@@ -597,11 +607,21 @@
      "previousDue": null,
      "previousDueTime": null,
      "amount": null
+    },
+    {
+     "id": "D6018C56-D2C6-4543-AB39-AAEBBE55791D",
+     "kind": "done",
+     "at": 1795791971393,
+     "day": "2026-11-27",
+     "slot": 0,
+     "previousDue": null,
+     "previousDueTime": null,
+     "amount": null
     }
    ],
    "snoozes": [],
    "createdAt": 1795728843050,
-   "modifiedAt": 1795762521882,
+   "modifiedAt": 1795791971394,
    "deletedAt": null,
    "logGone": []
   },
