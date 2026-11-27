@@ -1578,6 +1578,40 @@
    "modifiedAt": 1795748464355,
    "deletedAt": 1795748464355,
    "logGone": []
+  },
+  {
+   "id": "14EE3C31-32C1-4BBE-B29A-4361FBC4B5A9",
+   "title": "Beers",
+   "notes": "",
+   "schedule": {
+    "kind": "goal",
+    "every": 1,
+    "unit": "month",
+    "start": "2026-11-27",
+    "times": [],
+    "weekdays": [],
+    "afterWaking": null,
+    "nextDue": null,
+    "nextDueTime": null,
+    "fromDone": false,
+    "goalCount": 4,
+    "goalPeriod": "month",
+    "monthDays": [],
+    "months": [],
+    "nth": null
+   },
+   "cost": 350,
+   "autopay": false,
+   "reminder": "off",
+   "paused": false,
+   "pauses": [],
+   "trackFrom": "2026-11-27",
+   "log": [],
+   "snoozes": [],
+   "createdAt": 1795813843858,
+   "modifiedAt": 1795813843880,
+   "deletedAt": null,
+   "payment": "cash"
   }
  ],
  "wakes": {
