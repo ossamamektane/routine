@@ -1,0 +1,42 @@
+{
+ "app": "Routine",
+ "version": 4,
+ "items": [
+  {
+   "id": "10635E1B-1DE7-42AC-9FF5-07C37A49F743",
+   "title": "vf",
+   "notes": "",
+   "schedule": {
+    "kind": "repeating",
+    "every": 1,
+    "unit": "day",
+    "start": "2026-11-27",
+    "times": [],
+    "weekdays": [],
+    "afterWaking": null,
+    "nextDue": null,
+    "nextDueTime": null,
+    "fromDone": false,
+    "goalCount": 3,
+    "goalPeriod": "week"
+   },
+   "cost": null,
+   "autopay": false,
+   "reminder": "onTime",
+   "paused": false,
+   "pauses": [],
+   "trackFrom": "2026-11-27",
+   "log": [],
+   "snoozes": [],
+   "createdAt": 1795738467984,
+   "modifiedAt": 1795738487511,
+   "deletedAt": 1795738487511
+  }
+ ],
+ "wakes": {},
+ "wakesModifiedAt": 0,
+ "settings": {
+  "currency": "GBP",
+  "modifiedAt": 0
+ }
+}
