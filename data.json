@@ -151,11 +151,21 @@
      "previousDue": null,
      "previousDueTime": null,
      "amount": null
+    },
+    {
+     "id": "21DAEC70-F56D-4B6C-B080-57C9450E2003",
+     "kind": "done",
+     "at": 1795749092482,
+     "day": "2026-11-27",
+     "slot": null,
+     "previousDue": null,
+     "previousDueTime": null,
+     "amount": null
     }
    ],
    "snoozes": [],
    "createdAt": 1795728843043,
-   "modifiedAt": 1795729421166,
+   "modifiedAt": 1795749092483,
    "deletedAt": null,
    "logGone": []
   },
@@ -226,11 +236,21 @@
      "previousDue": null,
      "previousDueTime": null,
      "amount": null
+    },
+    {
+     "id": "3A4FA0E8-7C78-4F6D-9D5C-FE2031A0768B",
+     "kind": "done",
+     "at": 1795749090552,
+     "day": "2026-11-27",
+     "slot": 0,
+     "previousDue": null,
+     "previousDueTime": null,
+     "amount": null
     }
    ],
    "snoozes": [],
    "createdAt": 1795728843045,
-   "modifiedAt": 1795729417466,
+   "modifiedAt": 1795749090552,
    "deletedAt": null,
    "logGone": []
   },
@@ -309,11 +329,21 @@
      "previousDue": null,
      "previousDueTime": null,
      "amount": null
+    },
+    {
+     "id": "59DD80E0-62EB-491A-9AB1-279F08D37416",
+     "kind": "done",
+     "at": 1795749091565,
+     "day": "2026-11-27",
+     "slot": 0,
+     "previousDue": null,
+     "previousDueTime": null,
+     "amount": null
     }
    ],
    "snoozes": [],
    "createdAt": 1795728843047,
-   "modifiedAt": 1795741493667,
+   "modifiedAt": 1795749091565,
    "deletedAt": null,
    "logGone": []
   },
