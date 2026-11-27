@@ -1303,13 +1303,13 @@
     "nextDue": null,
     "nextDueTime": null,
     "fromDone": false,
-    "goalCount": 1,
+    "goalCount": 6,
     "goalPeriod": "month",
     "monthDays": [],
     "months": [],
     "nth": null
    },
-   "cost": 450,
+   "cost": 80,
    "autopay": false,
    "reminder": "off",
    "paused": true,
@@ -1319,13 +1319,14 @@
      "end": null
     }
    ],
-   "trackFrom": "2026-11-20",
+   "trackFrom": "2026-11-27",
    "log": [],
    "snoozes": [],
    "createdAt": 1795728843067,
-   "modifiedAt": 1795728843067,
+   "modifiedAt": 1795812874895,
    "deletedAt": null,
-   "logGone": []
+   "logGone": [],
+   "payment": "cash"
   },
   {
    "id": "06C73706-4BAC-4243-B90B-70442F66690C",
