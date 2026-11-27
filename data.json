@@ -846,7 +846,7 @@
   },
   {
    "id": "479717ED-0AE7-49BE-B693-A115DF5B0859",
-   "title": "Food",
+   "title": "Groceries",
    "notes": "",
    "schedule": {
     "kind": "repeating",
@@ -867,7 +867,7 @@
     "months": [],
     "nth": null
    },
-   "cost": 150,
+   "cost": 300,
    "autopay": false,
    "reminder": "dayBefore",
    "paused": false,
@@ -887,9 +887,10 @@
    ],
    "snoozes": [],
    "createdAt": 1795728843055,
-   "modifiedAt": 1795729387483,
+   "modifiedAt": 1795812307729,
    "deletedAt": null,
-   "logGone": []
+   "logGone": [],
+   "payment": "cash"
   },
   {
    "id": "4987EE17-D129-4E43-8ED0-F0152F886F85",
