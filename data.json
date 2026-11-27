@@ -1190,7 +1190,7 @@
     "start": "2026-11-26",
     "times": [],
     "weekdays": [],
-    "afterWaking": 4,
+    "afterWaking": 71,
     "nextDue": null,
     "nextDueTime": null,
     "fromDone": false,
@@ -1203,11 +1203,23 @@
    "paused": false,
    "pauses": [],
    "trackFrom": "2026-11-26",
-   "log": [],
+   "log": [
+    {
+     "id": "9E56FF59-5F15-4602-B2A5-A8A038DA73A0",
+     "kind": "done",
+     "at": 1795743888299,
+     "day": "2026-11-26",
+     "slot": 13,
+     "previousDue": null,
+     "previousDueTime": null,
+     "amount": null
+    }
+   ],
    "snoozes": [],
    "createdAt": 1795743844917,
-   "modifiedAt": 1795743844937,
-   "deletedAt": null
+   "modifiedAt": 1795743914947,
+   "deletedAt": null,
+   "logGone": []
   }
  ],
  "wakes": {
