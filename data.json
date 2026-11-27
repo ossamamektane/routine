@@ -418,26 +418,20 @@
      "previousDue": null,
      "previousDueTime": null,
      "amount": null
-    },
-    {
-     "id": "993C9113-5CCF-401D-BF21-B11C2932F709",
-     "kind": "done",
-     "at": 1795753460762,
-     "day": "2026-11-26",
-     "slot": 1,
-     "previousDue": null,
-     "previousDueTime": null,
-     "amount": null
     }
    ],
    "snoozes": [],
    "createdAt": 1795728843048,
-   "modifiedAt": 1795753460762,
+   "modifiedAt": 1795753463319,
    "deletedAt": null,
    "logGone": [
     {
      "id": "5393962F-6BE3-469C-862E-BDDE7F6C25B6",
      "at": 1795747690991
+    },
+    {
+     "id": "993C9113-5CCF-401D-BF21-B11C2932F709",
+     "at": 1795753463319
     }
    ]
   },
