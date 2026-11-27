@@ -157,7 +157,7 @@
     "start": "2026-11-21",
     "times": [],
     "weekdays": [],
-    "afterWaking": 15,
+    "afterWaking": 55,
     "nextDue": null,
     "nextDueTime": null,
     "fromDone": false,
@@ -172,7 +172,7 @@
    "reminder": "onTime",
    "paused": false,
    "pauses": [],
-   "trackFrom": "2026-11-26",
+   "trackFrom": "2026-11-27",
    "log": [
     {
      "id": "F64B7342-47A4-4E9C-8527-2A2DB8930320",
@@ -197,7 +197,7 @@
    ],
    "snoozes": [],
    "createdAt": 1795728843043,
-   "modifiedAt": 1795793944372,
+   "modifiedAt": 1795793960289,
    "deletedAt": null,
    "logGone": []
   },
