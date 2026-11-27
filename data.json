@@ -982,7 +982,7 @@
     "months": [],
     "nth": null
    },
-   "cost": 150,
+   "cost": 4000,
    "autopay": false,
    "reminder": "off",
    "paused": false,
@@ -991,9 +991,10 @@
    "log": [],
    "snoozes": [],
    "createdAt": 1795728843058,
-   "modifiedAt": 1795728843058,
+   "modifiedAt": 1795812369495,
    "deletedAt": null,
-   "logGone": []
+   "logGone": [],
+   "payment": "cash"
   },
   {
    "id": "9281CAAC-2785-4590-B3BF-7B1858D1BBD6",
