@@ -1241,13 +1241,15 @@
    "title": "c",
    "notes": "",
    "schedule": {
-    "kind": "repeating",
+    "kind": "once",
     "every": 1,
     "unit": "hour",
-    "start": "2026-11-26",
-    "times": [],
+    "start": "2026-11-27",
+    "times": [
+     173
+    ],
     "weekdays": [],
-    "afterWaking": 68,
+    "afterWaking": null,
     "nextDue": null,
     "nextDueTime": null,
     "fromDone": false,
@@ -1258,13 +1260,19 @@
    "autopay": false,
    "reminder": "onTime",
    "paused": false,
-   "pauses": [],
-   "trackFrom": "2026-11-26",
+   "pauses": [
+    {
+     "start": "2026-11-26",
+     "end": "2026-11-26"
+    }
+   ],
+   "trackFrom": "2026-11-27",
    "log": [],
    "snoozes": [],
    "createdAt": 1795747838680,
-   "modifiedAt": 1795747838702,
-   "deletedAt": null
+   "modifiedAt": 1795747938240,
+   "deletedAt": null,
+   "logGone": []
   }
  ],
  "wakes": {
