@@ -1178,6 +1178,36 @@
    "modifiedAt": 1795734398037,
    "deletedAt": 1795734398037,
    "logGone": []
+  },
+  {
+   "id": "81C1D977-29D3-4622-96DD-51803BA68D24",
+   "title": "x",
+   "notes": "",
+   "schedule": {
+    "kind": "repeating",
+    "every": 1,
+    "unit": "hour",
+    "start": "2026-11-26",
+    "times": [],
+    "weekdays": [],
+    "afterWaking": 4,
+    "nextDue": null,
+    "nextDueTime": null,
+    "fromDone": false,
+    "goalCount": 3,
+    "goalPeriod": "week"
+   },
+   "cost": null,
+   "autopay": false,
+   "reminder": "onTime",
+   "paused": false,
+   "pauses": [],
+   "trackFrom": "2026-11-26",
+   "log": [],
+   "snoozes": [],
+   "createdAt": 1795743844917,
+   "modifiedAt": 1795743844937,
+   "deletedAt": null
   }
  ],
  "wakes": {
