@@ -157,7 +157,7 @@
     "start": "2026-11-21",
     "times": [],
     "weekdays": [],
-    "afterWaking": 55,
+    "afterWaking": 15,
     "nextDue": null,
     "nextDueTime": null,
     "fromDone": false,
@@ -197,7 +197,7 @@
    ],
    "snoozes": [],
    "createdAt": 1795728843043,
-   "modifiedAt": 1795793960289,
+   "modifiedAt": 1795793976657,
    "deletedAt": null,
    "logGone": []
   },
