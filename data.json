@@ -363,11 +363,21 @@
      "previousDue": null,
      "previousDueTime": null,
      "amount": null
+    },
+    {
+     "id": "873DE4BD-22DD-47C4-9E00-2C9227E03A78",
+     "kind": "skipped",
+     "at": 1795751612834,
+     "day": "2026-11-26",
+     "slot": 2,
+     "previousDue": null,
+     "previousDueTime": null,
+     "amount": null
     }
    ],
    "snoozes": [],
    "createdAt": 1795728843047,
-   "modifiedAt": 1795749091565,
+   "modifiedAt": 1795751612834,
    "deletedAt": null,
    "logGone": []
   },
