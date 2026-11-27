@@ -1,0 +1,34 @@
+name: Mac app
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Put the web app inside the Mac app
+        run: |
+          mkdir -p mac/web
+          cp index.html app.js model.js manifest.json mac/web/
+      - name: Make the Xcode project
+        run: |
+          brew install xcodegen
+          cd mac && xcodegen generate
+      - name: Build
+        run: |
+          cd mac
+          xcodebuild -project Routine.xcodeproj -target Routine -configuration Release SYMROOT="$PWD/build" ARCHS="arm64 x86_64" ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO build
+          codesign --force --deep --sign - build/Release/Routine.app
+          ditto -c -k --keepParent build/Release/Routine.app ../Routine-mac.zip
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: mac-latest
+          name: Routine for Mac
+          body: "Download Routine-mac.zip, open it, and drag Routine to Applications. The first time, right-click Routine and choose Open."
+          files: Routine-mac.zip
+          make_latest: true
