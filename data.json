@@ -1,6 +1,6 @@
 {
  "app": "Routine",
- "version": 4,
+ "version": 5,
  "items": [
   {
    "id": "10635E1B-1DE7-42AC-9FF5-07C37A49F743",
@@ -30,7 +30,8 @@
    "snoozes": [],
    "createdAt": 1795738467984,
    "modifiedAt": 1795738487511,
-   "deletedAt": 1795738487511
+   "deletedAt": 1795738487511,
+   "logGone": []
   },
   {
    "id": "9136EF9A-F99E-4EF6-9620-66D6BCC050CD",
@@ -71,7 +72,8 @@
    "snoozes": [],
    "createdAt": 1795728843041,
    "modifiedAt": 1795729891417,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "92849407-1D27-4F57-B6ED-15BF166ADE6F",
@@ -112,7 +114,8 @@
    "snoozes": [],
    "createdAt": 1795728843042,
    "modifiedAt": 1795729424183,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "902E7655-09B8-42CA-B3B4-DEE1EB69EAA4",
@@ -153,7 +156,8 @@
    "snoozes": [],
    "createdAt": 1795728843043,
    "modifiedAt": 1795729421166,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "6241C6C2-CDF8-492B-94F3-5CA44F6B2FF7",
@@ -185,7 +189,8 @@
    "snoozes": [],
    "createdAt": 1795728843044,
    "modifiedAt": 1795728843044,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "26CDD5C8-23E6-455F-AD8F-2F4FF4815F18",
@@ -226,7 +231,8 @@
    "snoozes": [],
    "createdAt": 1795728843045,
    "modifiedAt": 1795729417466,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "AE31280E-531D-4D8F-B18F-EBCA61287B34",
@@ -256,7 +262,8 @@
    "snoozes": [],
    "createdAt": 1795728843046,
    "modifiedAt": 1795728843046,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "112ADAD0-AA10-4434-9813-6702E71C5103",
@@ -297,7 +304,8 @@
    "snoozes": [],
    "createdAt": 1795728843047,
    "modifiedAt": 1795739306020,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "0A49E48C-C8E2-45D0-AF0D-22C0C80A99E9",
@@ -338,7 +346,8 @@
    "snoozes": [],
    "createdAt": 1795728843048,
    "modifiedAt": 1795729422533,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "7B5071B7-CF0F-43B9-B959-C17C4A886518",
@@ -379,7 +388,8 @@
    "snoozes": [],
    "createdAt": 1795728843049,
    "modifiedAt": 1795729572556,
-   "deletedAt": 1795729572556
+   "deletedAt": 1795729572556,
+   "logGone": []
   },
   {
    "id": "1F539D77-0179-41F1-B7F5-315D274CE3CD",
@@ -430,7 +440,8 @@
    "snoozes": [],
    "createdAt": 1795728843050,
    "modifiedAt": 1795739148936,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "23E44116-6B96-430C-9A49-91069E4A695B",
@@ -471,7 +482,8 @@
    "snoozes": [],
    "createdAt": 1795728843051,
    "modifiedAt": 1795729345016,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "891C8F95-5C32-4D1D-86B2-A2A80E8E39E6",
@@ -506,7 +518,8 @@
    "snoozes": [],
    "createdAt": 1795728843052,
    "modifiedAt": 1795728843052,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "CEEC8FDD-F620-4AC4-B5E9-C610ACC10D77",
@@ -536,7 +549,8 @@
    "snoozes": [],
    "createdAt": 1795728843053,
    "modifiedAt": 1795728843053,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "7E538435-1901-49C9-A27F-1034BCED2088",
@@ -566,7 +580,8 @@
    "snoozes": [],
    "createdAt": 1795728843054,
    "modifiedAt": 1795729361231,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "479717ED-0AE7-49BE-B693-A115DF5B0859",
@@ -609,7 +624,8 @@
    "snoozes": [],
    "createdAt": 1795728843055,
    "modifiedAt": 1795729387483,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "4987EE17-D129-4E43-8ED0-F0152F886F85",
@@ -639,7 +655,8 @@
    "snoozes": [],
    "createdAt": 1795728843056,
    "modifiedAt": 1795732806039,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "CFDB6AD1-2AFA-46EE-AA3D-B00337D6A4F9",
@@ -669,7 +686,8 @@
    "snoozes": [],
    "createdAt": 1795728843057,
    "modifiedAt": 1795728843057,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "E69DEF04-63F9-4A27-83EA-8AA34D62B7BA",
@@ -699,7 +717,8 @@
    "snoozes": [],
    "createdAt": 1795728843058,
    "modifiedAt": 1795728843058,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "9281CAAC-2785-4590-B3BF-7B1858D1BBD6",
@@ -729,7 +748,8 @@
    "snoozes": [],
    "createdAt": 1795728843059,
    "modifiedAt": 1795728843059,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "D3A2813F-BF05-4A2A-953D-67DFE0E55C37",
@@ -759,7 +779,8 @@
    "snoozes": [],
    "createdAt": 1795728843060,
    "modifiedAt": 1795733919617,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "693999B5-8C38-42A4-8502-00DB8637ABD1",
@@ -789,7 +810,8 @@
    "snoozes": [],
    "createdAt": 1795728843061,
    "modifiedAt": 1795728843061,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "49CA67A9-24AB-4C5F-84D6-FDFCCBFC02BF",
@@ -819,7 +841,8 @@
    "snoozes": [],
    "createdAt": 1795728843062,
    "modifiedAt": 1795728843062,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "7393591C-09D7-49F2-A63D-0C6ABD651156",
@@ -849,7 +872,8 @@
    "snoozes": [],
    "createdAt": 1795728843063,
    "modifiedAt": 1795728843063,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "39290D02-DFF0-4D9D-9B5B-5C01B5DAFFC7",
@@ -884,7 +908,8 @@
    "snoozes": [],
    "createdAt": 1795728843064,
    "modifiedAt": 1795728843064,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "97621BDB-BC83-4AF8-BFAA-36A8148ED1E5",
@@ -919,7 +944,8 @@
    "snoozes": [],
    "createdAt": 1795728843065,
    "modifiedAt": 1795728843065,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "A06B9926-9335-4C84-A6A4-681B29DA1C7D",
@@ -954,7 +980,8 @@
    "snoozes": [],
    "createdAt": 1795728843066,
    "modifiedAt": 1795728843066,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "F5434BB9-AA4D-421E-83B0-0C7C8631C775",
@@ -989,7 +1016,8 @@
    "snoozes": [],
    "createdAt": 1795728843067,
    "modifiedAt": 1795728843067,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "06C73706-4BAC-4243-B90B-70442F66690C",
@@ -1024,7 +1052,8 @@
    "snoozes": [],
    "createdAt": 1795728843068,
    "modifiedAt": 1795728843068,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "E5B8CB4C-81E9-4A42-901F-48359932A651",
@@ -1059,7 +1088,8 @@
    "snoozes": [],
    "createdAt": 1795728843069,
    "modifiedAt": 1795728843069,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "1AA22243-2783-4B79-974D-048DB563C897",
@@ -1094,7 +1124,8 @@
    "snoozes": [],
    "createdAt": 1795728843070,
    "modifiedAt": 1795728843070,
-   "deletedAt": null
+   "deletedAt": null,
+   "logGone": []
   },
   {
    "id": "A9C69DBC-CEDF-4285-AECF-4D330957D090",
@@ -1135,12 +1166,14 @@
    "snoozes": [],
    "createdAt": 1795734387912,
    "modifiedAt": 1795734398037,
-   "deletedAt": 1795734398037
+   "deletedAt": 1795734398037,
+   "logGone": []
   }
  ],
  "wakes": {
   "2026-11-26": 635
  },
+ "wakeStamps": {},
  "wakesModifiedAt": 1795729136838,
  "settings": {
   "currency": "MAD",
