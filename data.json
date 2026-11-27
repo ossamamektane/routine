@@ -1183,7 +1183,9 @@
  "wakes": {
   "2026-11-26": 635
  },
- "wakeStamps": {},
+ "wakeStamps": {
+  "2026-11-26": 1795729136838
+ },
  "wakesModifiedAt": 1795729136838,
  "settings": {
   "currency": "MAD",
