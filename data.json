@@ -355,9 +355,14 @@
    ],
    "snoozes": [],
    "createdAt": 1795728843048,
-   "modifiedAt": 1795729422533,
+   "modifiedAt": 1795747690991,
    "deletedAt": null,
-   "logGone": []
+   "logGone": [
+    {
+     "id": "5393962F-6BE3-469C-862E-BDDE7F6C25B6",
+     "at": 1795747690991
+    }
+   ]
   },
   {
    "id": "7B5071B7-CF0F-43B9-B959-C17C4A886518",
