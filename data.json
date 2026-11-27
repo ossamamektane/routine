@@ -423,11 +423,21 @@
      "previousDue": null,
      "previousDueTime": null,
      "amount": null
+    },
+    {
+     "id": "18A350FF-F493-40DB-AB01-074128D05679",
+     "kind": "done",
+     "at": 1795807314953,
+     "day": "2026-11-27",
+     "slot": 1,
+     "previousDue": null,
+     "previousDueTime": null,
+     "amount": null
     }
    ],
    "snoozes": [],
    "createdAt": 1795728843047,
-   "modifiedAt": 1795791972292,
+   "modifiedAt": 1795807314953,
    "deletedAt": null,
    "logGone": [
     {
