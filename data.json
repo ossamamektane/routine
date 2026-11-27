@@ -363,23 +363,18 @@
      "previousDue": null,
      "previousDueTime": null,
      "amount": null
-    },
-    {
-     "id": "873DE4BD-22DD-47C4-9E00-2C9227E03A78",
-     "kind": "skipped",
-     "at": 1795751612834,
-     "day": "2026-11-26",
-     "slot": 2,
-     "previousDue": null,
-     "previousDueTime": null,
-     "amount": null
     }
    ],
    "snoozes": [],
    "createdAt": 1795728843047,
-   "modifiedAt": 1795751612834,
+   "modifiedAt": 1795751617367,
    "deletedAt": null,
-   "logGone": []
+   "logGone": [
+    {
+     "id": "873DE4BD-22DD-47C4-9E00-2C9227E03A78",
+     "at": 1795751617367
+    }
+   ]
   },
   {
    "id": "0A49E48C-C8E2-45D0-AF0D-22C0C80A99E9",
