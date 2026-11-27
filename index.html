@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta name="apple-mobile-web-app-title" content="Routine">
+<meta http-equiv="Cache-Control" content="no-cache">
+<title>Routine</title>
+</head>
+<body>
+<!-- Routine. Plain HTML only: no CSS, colors, icons or emojis (see README.md).
+     Everything sits in table#page; fitPage() in app.js sets its width for the screen size.
+     Each tab is a <section id="tab-NAME">; app.js fills the parts with id="...Body".
+     Panels (editor, wake-up time, done at) are sections shown in place of the tabs; the tab bar (header) hides while one is open. -->
+<table id="page" align="center" width="100%" cellpadding="0" cellspacing="0"><tr><td>
+<header>
+<nav><p id="tabs" align="center">
+<button type="button" data-tab="today">Today</button>
+<button type="button" data-tab="tasks">Tasks</button>
+<button type="button" data-tab="bills">Bills</button>
+<button type="button" data-tab="settings">Settings</button>
+</p></nav>
+<hr>
+</header>
+<main>
+<section id="tab-today">
+<table width="100%" cellspacing="0" cellpadding="0"><tr><td width="20%" align="left"></td><td align="center"><h2>Today</h2></td><td width="20%" align="right"></td></tr></table>
+<div id="todayBody"></div>
+</section>
+<section id="tab-tasks" hidden>
+<table width="100%" cellspacing="0" cellpadding="0"><tr><td width="20%" align="left"></td><td align="center"><h2>Tasks</h2></td><td width="20%" align="right"><button type="button" id="addTask2">Add</button></td></tr></table>
+<div id="taskSummary" align="center"></div>
+<p align="center"><input type="search" id="taskSearch" size="30" placeholder="Search" aria-label="Search Tasks"></p>
+<div id="tasksBody"></div>
+</section>
+<section id="tab-bills" hidden>
+<table width="100%" cellspacing="0" cellpadding="0"><tr><td width="20%" align="left"></td><td align="center"><h2>Bills</h2></td><td width="20%" align="right"><button type="button" id="addBill">Add</button></td></tr></table>
+<div id="billSummary" align="center"></div>
+<p align="center"><input type="search" id="billSearch" size="30" placeholder="Search" aria-label="Search Bills"></p>
+<div id="billsBody"></div>
+</section>
+<section id="tab-settings" hidden>
+<table width="100%" cellspacing="0" cellpadding="0"><tr><td width="20%" align="left"></td><td align="center"><h2>Settings</h2></td><td width="20%" align="right"></td></tr></table>
+<table width="100%" cellpadding="6" cellspacing="0" frame="void" rules="rows">
+<tr><td colspan="2" align="center"><h3>Sync</h3></td></tr>
+<tr><td width="100%">GitHub<br><small id="syncText"></small></td><td align="right" nowrap></td></tr>
+<tr><td colspan="2" align="center"><h3>Reminders</h3></td></tr>
+<tr id="notifyLine"><td width="100%">Notifications<br><small id="notifyText"></small></td><td align="right" nowrap><button type="button" id="allow" hidden>Allow</button></td></tr>
+<tr><td width="100%"><label for="prefReminders">Reminders</label></td><td align="right" nowrap><input type="checkbox" id="prefReminders"></td></tr>
+<tr><td width="100%"><label for="prefBadge">Badges</label></td><td align="right" nowrap><input type="checkbox" id="prefBadge"></td></tr>
+<tr><td colspan="2" align="center"><h3>General</h3></td></tr>
+<tr><td width="100%" id="curLeft"><label for="currency">Currency</label><span id="curBreak"><br></span><select id="currency"></select></td><td align="right" nowrap id="curRight"></td></tr>
+<tr><td width="100%"><label for="pref24">24-Hour Time</label></td><td align="right" nowrap><input type="checkbox" id="pref24"></td></tr>
+<tr id="updateRow" hidden><td width="100%">Update Available<br><small>A newer version of this app is ready.</small></td><td align="right" nowrap><button type="button" id="updateBtn">Download</button></td></tr>
+<tr><td width="100%">Language</td><td align="right" nowrap id="language"></td></tr>
+<tr id="keysRow" hidden><td width="100%">Keyboard Shortcuts<br><small>1&ndash;4 Tabs &middot; N Add &middot; / Search &middot; Esc Cancel</small></td><td align="right" nowrap></td></tr>
+</table>
+<p align="center"><small><a href="#" id="export">Export</a> &middot; <a href="#" id="importBtn">Import</a></small><input type="file" id="import" accept=".json,application/json" hidden aria-label="Import"></p>
+</section>
+<section id="wakeDialog" hidden>
+<form id="wakeForm">
+<table width="100%" cellspacing="0" cellpadding="0"><tr><td width="20%" align="left"><button value="cancel" formnovalidate>Cancel</button></td><td align="center"><h2>Wake-Up Time</h2></td><td width="20%" align="right"><button value="save">Save</button></td></tr></table>
+<p align="center"><label>Date<br><input type="date" name="date" required></label></p>
+<p align="center">Time<br><span id="wakeTime"></span></p>
+<p align="center"><button type="button" id="notUp">I'm Not Up Yet</button></p>
+</form>
+</section>
+
+<section id="atDialog" hidden>
+<form id="atForm">
+<table width="100%" cellspacing="0" cellpadding="0"><tr><td width="20%" align="left"><button value="cancel" formnovalidate>Cancel</button></td><td align="center"><h2 id="atTitle">Done At</h2></td><td width="20%" align="right"><button value="save">Save</button></td></tr></table>
+<p align="center" id="atQuick" hidden></p>
+<p align="center"><label>Date<br><input type="date" name="date" required></label></p>
+<p align="center">Time<br><span id="atTime"></span></p>
+</form>
+</section>
+
+<section id="editor" hidden>
+<form id="form"><div id="editorBody"></div></form>
+</section>
+</main>
+</td></tr></table>
+
+<!-- Bump ?v= on both (and VERSION in app.js) on every change, so browsers never use old copies. -->
+<script src="model.js?v=37"></script>
+<script src="app.js?v=37"></script>
+</body>
+</html>
