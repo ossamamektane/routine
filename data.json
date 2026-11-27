@@ -804,9 +804,10 @@
    "log": [],
    "snoozes": [],
    "createdAt": 1795728843057,
-   "modifiedAt": 1795743670234,
+   "modifiedAt": 1795751291892,
    "deletedAt": null,
-   "logGone": []
+   "logGone": [],
+   "payment": "cash"
   },
   {
    "id": "E69DEF04-63F9-4A27-83EA-8AA34D62B7BA",
