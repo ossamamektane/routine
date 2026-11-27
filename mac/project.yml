@@ -1,0 +1,36 @@
+# Routine for Mac. Made into an Xcode project by XcodeGen (the GitHub workflow does this for you).
+# Before building, the web files are copied into mac/web (see .github/workflows/mac.yml).
+name: Routine
+options:
+  bundleIdPrefix: io.github.ossamamektane
+  deploymentTarget:
+    macOS: "12.0"
+targets:
+  Routine:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources
+      - path: web
+        type: folder
+        buildPhase: resources
+    info:
+      path: Info.plist
+      properties:
+        CFBundleName: Routine
+        CFBundleDisplayName: Routine
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        LSApplicationCategoryType: public.app-category.productivity
+        NSPrincipalClass: NSApplication
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.ossamamektane.routine
+        PRODUCT_NAME: Routine
+        SWIFT_VERSION: "5.0"
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "-"
+        DEVELOPMENT_TEAM: ""
+        ENABLE_HARDENED_RUNTIME: NO
+        ENABLE_APP_SANDBOX: NO
+        GENERATE_INFOPLIST_FILE: NO
