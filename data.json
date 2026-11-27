@@ -963,7 +963,7 @@
   },
   {
    "id": "E69DEF04-63F9-4A27-83EA-8AA34D62B7BA",
-   "title": "Beers",
+   "title": "Hennessy",
    "notes": "",
    "schedule": {
     "kind": "goal",
@@ -982,7 +982,7 @@
     "months": [],
     "nth": null
    },
-   "cost": 4000,
+   "cost": 1400,
    "autopay": false,
    "reminder": "off",
    "paused": false,
@@ -991,7 +991,7 @@
    "log": [],
    "snoozes": [],
    "createdAt": 1795728843058,
-   "modifiedAt": 1795812369495,
+   "modifiedAt": 1795812433446,
    "deletedAt": null,
    "logGone": [],
    "payment": "cash"
