@@ -1,7 +1,8 @@
-name: Mac app
+name: Apps
 on:
   push:
     branches: [main]
+    paths: ["apps/**", "icon.png", ".github/workflows/**"]
   workflow_dispatch:
 permissions:
   contents: write
@@ -10,25 +11,40 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - name: Put the web app inside the Mac app
+      - name: Icons and the site copy inside the apps
         run: |
-          mkdir -p mac/web
-          cp index.html app.js model.js manifest.json mac/web/
+          python3 -m venv /tmp/py
+          /tmp/py/bin/pip install --quiet pillow
+          /tmp/py/bin/python apps/make_icons.py icon.png
+          mkdir -p apps/web
+          cp index.html app.js model.js manifest.json icon.png apps/web/
+          cp apps/Shared/bridge.js apps/web/
       - name: Make the Xcode project
         run: |
           brew install xcodegen
-          cd mac && xcodegen generate
-      - name: Build
+          cd apps && xcodegen generate
+      - name: Build for Mac
         run: |
-          cd mac
-          xcodebuild -project Routine.xcodeproj -target Routine -configuration Release SYMROOT="$PWD/build" ARCHS="arm64 x86_64" ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO build
+          cd apps
+          xcodebuild -project Routine.xcodeproj -target Routine-Mac -configuration Release SYMROOT="$PWD/build" ARCHS="arm64 x86_64" ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO build
           codesign --force --deep --sign - build/Release/Routine.app
           ditto -c -k --keepParent build/Release/Routine.app ../Routine-mac.zip
+      - name: Build for iPhone and iPad
+        run: |
+          cd apps
+          xcodebuild -project Routine.xcodeproj -target Routine-iOS -configuration Release -sdk iphoneos SYMROOT="$PWD/build" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
+          mkdir -p Payload
+          cp -R build/Release-iphoneos/Routine.app Payload/
+          zip -qry ../Routine-ios.ipa Payload
       - name: Publish
         uses: softprops/action-gh-release@v2
         with:
           tag_name: mac-latest
-          name: Routine for Mac
-          body: "Download Routine-mac.zip, open it, and drag Routine to Applications. The first time, right-click Routine and choose Open."
-          files: Routine-mac.zip
+          name: Routine apps
+          body: |
+            Mac: download Routine-mac.zip, open it, drag Routine to Applications. First time: System Settings > Privacy & Security > Open Anyway.
+            iPhone and iPad: download Routine-ios.ipa on the iPhone, then in AltStore: My Apps > + > choose the file.
+          files: |
+            Routine-mac.zip
+            Routine-ios.ipa
           make_latest: true
