@@ -655,9 +655,10 @@
    "log": [],
    "snoozes": [],
    "createdAt": 1795728843053,
-   "modifiedAt": 1795728843053,
+   "modifiedAt": 1795751303924,
    "deletedAt": null,
-   "logGone": []
+   "logGone": [],
+   "payment": "cash"
   },
   {
    "id": "7E538435-1901-49C9-A27F-1034BCED2088",
