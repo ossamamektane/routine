@@ -867,7 +867,7 @@
     "months": [],
     "nth": null
    },
-   "cost": 300,
+   "cost": 200,
    "autopay": false,
    "reminder": "dayBefore",
    "paused": false,
@@ -887,7 +887,7 @@
    ],
    "snoozes": [],
    "createdAt": 1795728843055,
-   "modifiedAt": 1795812307729,
+   "modifiedAt": 1795812332880,
    "deletedAt": null,
    "logGone": [],
    "payment": "cash"
