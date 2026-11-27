@@ -674,7 +674,7 @@
    "notes": "",
    "schedule": {
     "kind": "repeating",
-    "every": 2,
+    "every": 1,
     "unit": "day",
     "start": "2026-11-22",
     "times": [],
@@ -691,11 +691,11 @@
    "reminder": "off",
    "paused": false,
    "pauses": [],
-   "trackFrom": "2026-11-20",
+   "trackFrom": "2026-11-27",
    "log": [],
    "snoozes": [],
    "createdAt": 1795728843057,
-   "modifiedAt": 1795728843057,
+   "modifiedAt": 1795743670234,
    "deletedAt": null,
    "logGone": []
   },
