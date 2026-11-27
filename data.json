@@ -759,18 +759,18 @@
    "cost": null,
    "autopay": false,
    "reminder": "onTime",
-   "paused": true,
+   "paused": false,
    "pauses": [
     {
      "start": "2026-11-26",
-     "end": null
+     "end": "2026-11-27"
     }
    ],
-   "trackFrom": "2026-11-26",
+   "trackFrom": "2026-11-27",
    "log": [],
    "snoozes": [],
    "createdAt": 1795728843052,
-   "modifiedAt": 1795728843052,
+   "modifiedAt": 1795808459104,
    "deletedAt": null,
    "logGone": []
   },
