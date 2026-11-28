@@ -20,7 +20,7 @@
   "rate": 1,
   "follow": true,
   "worker": "https://reader.ossamamektane.workers.dev",
-  "voice": "ai:en-US-AvaMultilingualNeural",
-  "modifiedAt": 0
+  "voice": "ai:en-US-AndrewMultilingualNeural",
+  "modifiedAt": 1795871543513
  }
 }
