@@ -1611,7 +1611,8 @@
    "createdAt": 1795813843858,
    "modifiedAt": 1795813843880,
    "deletedAt": null,
-   "payment": "cash"
+   "payment": "cash",
+   "logGone": []
   }
  ],
  "wakes": {
