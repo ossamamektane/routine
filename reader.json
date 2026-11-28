@@ -7,10 +7,10 @@
    "title": "",
    "text": "",
    "pos": {
-    "s": 16,
-    "c": 28
+    "s": 17,
+    "c": 77
    },
-   "openedAt": 1795869416934,
+   "openedAt": 1795870592411,
    "createdAt": 1795868913721,
    "updatedAt": 1795870039622,
    "deletedAt": 1795870039622
@@ -19,7 +19,8 @@
  "shared": {
   "rate": 1,
   "follow": true,
-  "notionProxy": "",
+  "worker": "https://reader.ossamamektane.workers.dev",
+  "voice": "ai:en-US-AvaMultilingualNeural",
   "modifiedAt": 0
  }
 }
